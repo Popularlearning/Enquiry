@@ -44,7 +44,7 @@
         <!-- Header Section -->
         <div class="gradient-header p-8 text-center text-white relative">
             <div class="mb-6">
-                <!-- 公司 Logo 佔位符 (可替換為實際 URL) -->
+                <!-- 公司 Logo -->
                 <img src="https://static.wixstatic.com/media/76a93c_3efb0334db494c028e6ec21304b8a570~mv2.png/v1/crop/x_35,y_0,w_1244,h_613/fill/w_209,h_103,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1_logo%20full%20color_%E6%A9%AB.png" alt="Company Logo" class="mx-auto h-24 rounded-xl bg-white p-2 shadow-sm transition hover:scale-105 duration-300">
             </div>
             <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">課程查詢與預約系統</h1>
@@ -95,8 +95,8 @@
                     <h2 class="text-xl font-bold text-gray-800">意向課程 (可多選)</h2>
                 </div>
 
+                <!-- KG Courses Group -->
                 <div id="kgGroup" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <!-- KG Courses -->
                     <label class="checkbox-card cursor-pointer">
                         <input type="checkbox" name="course" value="幼兒中文課程" class="sr-only">
                         <div class="flex items-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all">
@@ -111,10 +111,18 @@
                             <span class="text-gray-700 font-medium">幼兒英文課程</span>
                         </div>
                     </label>
+                    <!-- 新增：幼兒暑期課程 -->
+                    <label class="checkbox-card cursor-pointer col-span-1 sm:col-span-2">
+                        <input type="checkbox" name="course" value="暑期幼兒常規/銜接課程" class="sr-only">
+                        <div class="flex items-center p-4 border border-orange-300 bg-orange-50/30 rounded-xl hover:bg-orange-50 transition-all">
+                            <i class="fa-solid fa-sun text-amber-500 animate-pulse mr-3"></i>
+                            <span class="text-gray-800 font-bold">☀️ 暑期課程</span>
+                        </div>
+                    </label>
                 </div>
 
+                <!-- Primary Courses Group -->
                 <div id="priGroup" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <!-- Primary Courses -->
                     <label class="checkbox-card cursor-pointer">
                         <input type="checkbox" name="course" value="樂思中文課程" class="sr-only">
                         <div class="flex items-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all">
@@ -155,6 +163,14 @@
                         <div class="flex items-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all">
                             <i class="fa-solid fa-earth-asia text-teal-600 mr-3"></i>
                             <span class="text-gray-700 font-medium">常識課程</span>
+                        </div>
+                    </label>
+                    <!-- 新增：小學暑期課程 -->
+                    <label class="checkbox-card cursor-pointer col-span-1 sm:col-span-2">
+                        <input type="checkbox" name="course" value="暑期小學英數常/升班銜接班" class="sr-only">
+                        <div class="flex items-center p-4 border border-orange-300 bg-orange-50/30 rounded-xl hover:bg-orange-50 transition-all">
+                            <i class="fa-solid fa-umbrella-beach text-amber-500 animate-bounce mr-3"></i>
+                            <span class="text-gray-800 font-bold">☀️ 暑期課程</span>
                         </div>
                     </label>
                 </div>
@@ -227,7 +243,7 @@
         const days = ['一', '二', '三', '四', '五', '六', '日'];
         
         // WhatsApp Config
-        const WHATSAPP_NUMBER = "85298461974"; // 請在此填寫您的中心電話，如 "85290001111"
+        const WHATSAPP_NUMBER = "85298461974"; // 大埔分校電話
 
         // DOM Elements
         const gradeContainer = document.getElementById('grade-container');
@@ -307,7 +323,6 @@
             }
 
             if (courses.length === 0) {
-                // 使用自定義彈窗而非 alert
                 showFeedback('請至少選擇一項感興趣的課程。', 'error');
                 return;
             }
@@ -345,7 +360,6 @@
 
         // Run Init
         window.onload = init;
-
     </script>
 </body>
 </html>
